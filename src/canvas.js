@@ -34,7 +34,9 @@ document.addEventListener("keyup", pressKeyUp);
 
 let keys = {
     "ArrowLeft": false,
-    "ArrowRight": false
+    "ArrowRight": false,
+    "ArrowUp": false,
+    "ArrowDown": false,
 }
 
 function pressKeyDown(e) {
@@ -49,6 +51,10 @@ function pressKeyDown(e) {
         // console.log(spritePos.y);
     } else if (keys.ArrowRight) {
         spritePos.y = (spritePos.y + (spriteHeight * 2));
+    } else if (keys.ArrowUp) {
+        spritePos.y = (spritePos.y + (spriteHeight * 3));
+    } else if (keys.ArrowDown) {
+        spritePos.y = 0;
     }
     show();
 }
@@ -95,7 +101,9 @@ function show() {
             spritePos.x += spriteWidth;
         } else {
             spritePos.x = 0;
-        };
+        }
+
+
     }
 
     count++;
@@ -105,7 +113,17 @@ function show() {
     } else if(canvasPos.x > 0 && keys.ArrowLeft) {
         canvasPos.x -= 2;
         requestAnimationFrame(show);
+    } else if (canvasPos.y < (innerHeight -60) && keys.ArrowDown ) {
+        canvasPos.y += 2;
+        requestAnimationFrame(show);
+    } else if (canvasPos.y > 0 && keys.ArrowUp) {
+        canvasPos.y -= 2;
+        requestAnimationFrame(show);
     } 
+    // else {
+    //     canvasPos.x = 0;
+    //     canvasPos.y = 0;
+    // }
 }
 
 
