@@ -61,9 +61,19 @@ function pressKeyDown(e) {
 
 function pressKeyUp(e) {
     e.preventDefault();
-    keys[e.key] = false;
-    // spritePos.y = 0; // she faces forward after every keypress ends but she teleports
+    if (e.key === "ArrowUp") {
+        spritePos.y = (spriteHeight * 3);
+        spritePos.x = (spriteWidth * 7);
+        keys[e.key] = false;
+    } else {
+        spritePos.y = 0;
+        spritePos.x = (spriteWidth * 5);
+        keys[e.key] = false;
+    }
+    
 
+    // spritePos.y = 0; // she faces forward after every keypress ends but she teleports
+   
     
     // console.log(keys);
 }
