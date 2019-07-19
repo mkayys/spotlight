@@ -40,25 +40,30 @@ let keys = {
 function pressKeyDown(e) {
     e.preventDefault();
     keys[e.key] = true;
-    console.log(keys);
+    // console.log(keys);
+    
+    if (keys.ArrowLeft) {
+        // console.log(keys);
+        spritePos.y = (spritePos.y + (spriteHeight));
+        // console.log(spritePos.y);
+    } else if (keys.ArrowRight) {
+        spritePos.y = (spritePos.y + (spriteHeight * 2));
+    }
+    show();
 }
 
 function pressKeyUp(e) {
     e.preventDefault();
     keys[e.key] = false;
-    console.log(keys);
+    spritePos.y = 0;
+    // console.log(keys);
 }
 
 let count = 0;
 
 
 function draw() {
-    if(keys.ArrowLeft){
-        // console.log(keys)
-        spritePos.y = (spritePos.y + (spriteHeight));
-    } else if(keys.ArrowRight) {
-        spritePos.y = (spritePos.y + (spriteHeight * 2));
-    }
+    
     ctx.drawImage(
         img,
         spritePos.x,
@@ -76,6 +81,7 @@ function draw() {
 
 
 function show() {
+    // console.log('you made it');
     ctx.clearRect(0, 0, innerWidth, innerHeight);
     ctx.fillRect(0, 0, innerWidth, innerHeight);
 
@@ -92,12 +98,11 @@ function show() {
     count++;
     if (canvasPos.x < innerWidth && keys.ArrowRight) {
         canvasPos.x += 2;
+        requestAnimationFrame(show);
     } else if(canvasPos.x > 0 && keys.ArrowLeft) {
         canvasPos.x -= 2;
-    } else {
-        break;
-    }
-    requestAnimationFrame(show);
+        requestAnimationFrame(show);
+    } 
 }
 
 
