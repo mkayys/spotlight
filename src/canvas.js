@@ -40,6 +40,7 @@ let keys = {
 function pressKeyDown(e) {
     e.preventDefault();
     keys[e.key] = true;
+    spritePos.y = 0;
     // console.log(keys);
     
     if (keys.ArrowLeft) {
@@ -55,7 +56,9 @@ function pressKeyDown(e) {
 function pressKeyUp(e) {
     e.preventDefault();
     keys[e.key] = false;
-    spritePos.y = 0;
+    // spritePos.y = 0; // she faces forward after every keypress ends but she teleports
+
+    
     // console.log(keys);
 }
 
@@ -96,7 +99,7 @@ function show() {
     }
 
     count++;
-    if (canvasPos.x < innerWidth && keys.ArrowRight) {
+    if (canvasPos.x < (innerWidth - 60) && keys.ArrowRight) {
         canvasPos.x += 2;
         requestAnimationFrame(show);
     } else if(canvasPos.x > 0 && keys.ArrowLeft) {
