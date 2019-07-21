@@ -9,6 +9,8 @@ export default class Tile {
     }
 
     show() {
-
+        if (isPresent) {
+            // show up on canvas for grid
+        }
     }
 }

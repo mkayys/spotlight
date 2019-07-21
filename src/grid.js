@@ -6,4 +6,8 @@ export default class Grid {
         this.height = innerHeight;
     }
 
+    playGame() {
+        // render the grid (size dependent on the viewport?)
+    }
+
 }
