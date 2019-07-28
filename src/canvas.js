@@ -88,7 +88,6 @@ function pressKeyUp(e) {
 
     keys[e.key] = false;
     spriteIdle(e);
-    // spritePos.y = 0; // she faces forward after every keypress ends but she teleports
 
     isPressed = false;
     // draw();
