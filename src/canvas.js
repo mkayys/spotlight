@@ -17,7 +17,7 @@ ctx.fillStyle = "black";
 ctx.fillRect(0, 0, innerWidth, innerHeight);
 
 let img = new Image();
-img.src = './girl_running.png';
+img.src = '../girl_running.png';
 
 let spriteWidth = 480 / 8;
 let spriteHeight = 240 / 4;
